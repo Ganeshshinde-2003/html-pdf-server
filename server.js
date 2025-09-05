@@ -7,11 +7,16 @@ const path = require("path");
 const app = express();
 const port = 3000;
 
-app.use(cors({
-  origin: ["http://127.0.0.1:5500", "https://html-to-pdf-nine.vercel.app"], // add your frontend domain
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+app.use(
+  cors({
+    origin: [
+      "https://html-to-pdf-nine.vercel.app",
+      "http://127.0.0.1:5500",
+    ], // add your frontend domain
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.static(path.join(__dirname)));
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -54,9 +59,15 @@ app.post("/generate-pdf", async (req, res) => {
       </html>`;
 
     const browser = await puppeteer.launch({
-      args: ["--no-sandbox"],
-      timeout: 0,
+      headless: "new", // mandatory for modern Puppeteer
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+      ],
     });
+
     const page = await browser.newPage();
 
     await page.setContent(htmlContent, {
