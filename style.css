@@ -1,0 +1,1181 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  background-color: #f0f2f5;
+  color: #333;
+  box-sizing: border-box;
+}
+
+* {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  page-break-before: avoid !important;
+  page-break-after: avoid !important;
+}
+
+
+/* Add this class to your style.css file */
+.page-break-before {
+  page-break-before: always !important;
+  break-before: page !important;
+}
+
+/* Main App Layout */
+.app-container {
+  display: flex;
+  /* Adjusted height to account for the new main navbar */
+  height: calc(100vh - 50px);
+  width: 100vw;
+}
+
+.editor-pane,
+.preview-pane {
+  width: 50%;
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.editor-pane {
+  background-color: #ffffff;
+  border-right: 1px solid #d9d9d9;
+}
+
+.tab-container {
+  margin-bottom: 20px;
+}
+
+.editor-pane header,
+.preview-pane header {
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 0;
+  color: #0056b3;
+}
+
+/* Editor Styling */
+#json-input {
+  width: 100%;
+  height: 150px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-family: monospace;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#editor-form-container fieldset {
+  border: 1px dashed #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+#editor-form-container legend {
+  font-weight: bold;
+  color: #0056b3;
+}
+
+#editor-form-container label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+#editor-form-container input[type="text"],
+#editor-form-container textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* ==============================================
+PDF PREVIEW STYLES
+==============================================
+*/
+#pdf-preview {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* A4 paper aspect ratio for a more realistic preview */
+  width: 8.27in;
+  min-height: 11.69in;
+  box-sizing: border-box;
+}
+
+/* This class is added during PDF generation for higher quality rendering */
+.pdf-render-view {
+  width: auto;
+  height: auto;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  /* padding: 0.5in; */
+}
+
+#pdf-preview .placeholder {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #888;
+}
+
+.c1 {
+  font-size: 32px;
+  color: #f67e3c;
+  font-weight: 500;
+}
+.c2 {
+  font-size: 32px;
+  color: #1e8e3e;
+  font-weight: 500;
+}
+
+/* --- General Report Typography & Layout --- */
+.report-header h1 {
+  font-size: 52px;
+  font-weight: 500;
+  padding: 20px 40px;
+  padding-top: 80px;
+  color: #1a1a1a;
+  margin: 0 !important;
+  border-bottom: 1px solid #9e9a98;
+}
+.report-header .last-update {
+  font-size: 30px;
+  color: #2b2928;
+  font-weight: 400;
+  padding: 40px;
+  border-bottom: 1px solid #9e9a98;
+  margin: 0;
+}
+.report-header .last-update span {
+  color: #023936;
+  font-weight: 700;
+}
+
+.report-section {
+  page-break-inside: avoid;
+}
+.report-section h3 {
+  color: #333;
+  font-weight: 600;
+  font-size: 50px !important;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+}
+.report-section h4 {
+  color: #2b2928;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 50px;
+  font-weight: 400;
+}
+.why-it-matters-h4 {
+  margin-top: 50px !important;
+}
+.biomarker-warraper h4 {
+  margin-top: 100px !important;
+}
+
+.report-section p,
+.report-section li {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 32px;
+  color: #656160;
+}
+ul,
+ol {
+  padding-left: 20px;
+}
+
+/* ==============================================
+NEW BIOMARKER CHART STYLES
+==============================================
+*/
+.biomarker-chart-container {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  page-break-inside: avoid;
+}
+.biomarker-chart-container .meta-info {
+  font-size: 25px;
+  color: #2b2928;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+.pillar-meta-info,
+.suppliment-meta-info {
+  font-size: 25px;
+  color: #2b2928;
+  font-weight: 300;
+  padding: 50px 40px;
+  border-bottom: 1px solid #c9c5c3;
+}
+.pillar-intro-container {
+  padding: 50px 40px;
+}
+.pillar-intro-container h4 {
+  margin-bottom: 30px;
+}
+.pillar-intro-container .pillar-intro {
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+.pillar-meta-info span,
+.suppliment-meta-info span {
+  display: block;
+  margin-bottom: 4px;
+}
+.biomarker-chart-container .meta-info span {
+  display: block;
+  margin-bottom: 4px;
+}
+.biomarker-chart-container .meta-info span strong {
+  font-weight: 500;
+}
+.pillar-meta-info span strong,
+.suppliment-meta-info span strong {
+  font-weight: 500;
+}
+.biomarker-warraper {
+  background-color: #f1f0f2;
+  padding: 50px 40px;
+  padding-bottom: 100px;
+}
+
+.biomarker-chart-container h3 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.chart-wrapper {
+  border: 1px solid #023936;
+  border-radius: 25px;
+  padding: 0 20px;
+  background-color: white;
+  margin-bottom: 100px;
+}
+.chart-area {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 400px; /* Container height for bars */
+  width: 100%;
+}
+.chart-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 40%; /* Give each bar group a width */
+}
+.bar-label {
+  font-size: 40px;
+  font-weight: 600;
+  color: #2b2928;
+}
+.bar {
+  width: 100%; /* Make bar fill its group's width */
+  max-width: 210px; /* But not too wide */
+  border-radius: 15px 15px 0 0;
+  transition: height 0.5s ease-out;
+}
+.bar.optimal {
+  background: linear-gradient(95deg, #023936 9.12%, #297e79 100%);
+} /* Green */
+.bar.mind {
+  background: linear-gradient(180deg, #d98600 0%, #734700 100%);
+} /* Amber */
+.bar.attention {
+  background: linear-gradient(90deg, #562954 0%, #bc5ab8 100%);
+} /* Red */
+.bar-title {
+  font-size: 20px;
+  color: #2b2928;
+  font-weight: 400;
+}
+.chart-summary {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #656160;
+}
+
+/* ==============================================
+DETAILED BIOMARKER CARD STYLES
+==============================================
+*/
+.biomarkers-container {
+  margin-top: 60px;
+}
+.categories-wrapper {
+  padding: 40px;
+  padding-bottom: 160px !important;
+  border-bottom: 1px solid #a1a9bc;
+}
+.categories-wrapper h4 {
+  font-size: 50px;
+  margin-bottom: 60px;
+}
+.missing-info-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #2b2928;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+.circular-indicatorM {
+  width: 10px;
+  height: 10px;
+  background-color: #9e9a98;
+  border-radius: 50%;
+}
+.circular-indicatorO {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(
+    95deg,
+    #023936 9.12%,
+    #297e79 100%
+  ); /* Corresponds to the optimal green gradient */
+  border-radius: 50%;
+}
+
+.circular-indicatorK {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(
+    180deg,
+    #d98600 0%,
+    #734700 100%
+  ); /* Corresponds to the mind orange gradient */
+  border-radius: 50%;
+}
+
+.circular-indicatorA {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(
+    90deg,
+    #562954 0%,
+    #bc5ab8 100%
+  ); /* Corresponds to the attention purple gradient */
+  border-radius: 50%;
+}
+
+.circular-indicator-optimal {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(95deg, #023936 9.12%, #297e79 100%);
+  border-radius: 50%;
+}
+
+.circular-indicator-attention_needed {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(180deg, #d98600 0%, #734700 100%);
+  border-radius: 50%;
+}
+
+.circular-indicator-keep_in_mind {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(90deg, #562954 0%, #bc5ab8 100%);
+  border-radius: 50%;
+}
+
+.categoris-value {
+  display: flex;
+  gap: 100px;
+}
+
+.biomarker-result-div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+/* Add this class to your style.css file */
+.first-biomarker-card {
+  /* This removes any top margin or padding the other cards might have */
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.biomarker-card {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 40px;
+  border-bottom: 1px solid #656160;
+}
+.biomarker-box-card {
+  width: 93%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.biomarker-box-card h5 {
+  font-size: 40px;
+  color: #000;
+  font-weight: 400;
+  margin: 0;
+}
+
+.biomarker-box-card p {
+  color: #000000;
+  font-size: 24px;
+}
+.result-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+}
+.result-show .result-value-optimal {
+  font-size: 90px;
+  font-weight: 500;
+  color: #023936;
+  margin: 0;
+}
+
+.result-show .result-unit-optimal {
+  font-size: 30px;
+  color: #537767;
+  margin: 0;
+}
+
+.result-show .result-value-keep_in_mind {
+  font-size: 50px;
+  color: #5e163c;
+  margin: 0;
+}
+
+.result-show .result-unit-keep_in_mind {
+  font-size: 20px;
+  color: #5d2555;
+  margin: 0;
+}
+
+.result-show .result-value-attention_needed {
+  font-size: 50px;
+  color: #d98600;
+  margin: 0;
+}
+
+.result-show .result-unit-attention_needed {
+  font-size: 20px;
+  color: #d98600;
+  margin: 0;
+}
+
+.range-show {
+  align-self: self-start;
+  display: flex;
+  gap: 15px;
+}
+
+.range-indicator {
+  width: 20px;
+  height: 90px;
+  border-radius: 40px;
+  background-color: #cccccc;
+}
+
+.range-indicator-optimal {
+  background: linear-gradient(95deg, #023936 9.12%, #297e79 100%);
+}
+
+.range-indicator-attention_needed {
+  background: linear-gradient(180deg, #d98600 0%, #734700 100%);
+}
+
+.range-indicator-keep_in_mind {
+  background: linear-gradient(90deg, #562954 0%, #bc5ab8 100%);
+}
+
+.range-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.range-content p {
+  margin: 0 !important;
+  font: 14px !important;
+}
+
+.biomarker-box-card-optimal {
+  align-self: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 30px 0;
+  background-color: #ebf0e8;
+}
+
+.biomarker-box-card-attention_needed {
+  align-self: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 30px 0;
+  background-color: #fff8e5;
+}
+
+.biomarker-box-card-keep_in_mind {
+  align-self: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 30px 0;
+  background-color: #dbcfd2;
+}
+
+.biomarker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.biomarker-header h5 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+  color: #333;
+}
+.biomarker-result {
+  font-weight: 400;
+  font-size: 24px;
+}
+.biomarker-card p {
+  margin: 5px 0;
+}
+
+.biomarker-card .range-p {
+  text-align: center;
+}
+
+.pillers-wrapper h4 {
+  margin-top: 0 !important;
+}
+
+.p-grey {
+  color: #656160;
+  font-size: 18px;
+  font-weight: 400;
+}
+.crucial {
+  padding: 80px 40px;
+  background-color: #f1f1f1;
+}
+.crucial-header-wrapper {
+  padding: 40px 40px;
+  border-radius: 20px;
+  background-color: white;
+}
+.crucial-ind {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+
+.crucial h4 {
+  font-size: 50px;
+  margin: 50px 0;
+}
+.crucial p {
+  margin: 0;
+}
+.crucial-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.crucial-ind-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid #c9c5c3;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+.crucial .crucial-name {
+  color: #656160;
+  width: fit-content;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0;
+}
+.health-recommendation {
+  border: none;
+  background-color: #656160;
+}
+.health-recommendation h4 {
+  font-size: 50px;
+  color: white;
+}
+
+/* ==============================================
+MAIN NAVBAR (No changes made here)
+==============================================
+*/
+.main-navbar {
+  background-color: #2c3e50;
+  padding: 10px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.main-navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+.main-navbar a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.main-navbar a:hover {
+  background-color: #34495e;
+}
+.main-navbar a.active {
+  background-color: #e74c3c;
+  color: white;
+  font-weight: bold;
+}
+
+.pillers-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+}
+.pillers-wrapper .meta-info {
+  display: flex;
+  flex-direction: column;
+}
+.pillars-chart-container {
+  align-self: center;
+  margin: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #023936;
+  background-color: white;
+  border-radius: 20px;
+  /* padding: 20px 30px; */
+}
+
+.pillars-chart-container h3 {
+  border: none;
+  color: #414d55;
+  font-size: 24px;
+  font-weight: 400;
+}
+.pillars-summary {
+  padding: 20px 30px;
+  border-top: 1px solid #c9c5c3;
+}
+.pillars-summary p,
+.pillars-summary span {
+  color: #000;
+  font-size: 24px;
+}
+
+.status-needs-alignment span {
+  color: #5d2555 !important;
+  font-weight: 700;
+}
+.status-aligned span {
+  color: #537767 !important;
+  font-weight: 700;
+}
+.status-on-track span {
+  color: #d98600 !important;
+  font-weight: 700;
+}
+.status-imbalance span {
+  color: red !important;
+  font-weight: 700;
+}
+
+#pillars-chart {
+  height: 500px !important;
+  width: 600px !important;
+}
+
+.pillar-header {
+  width: full;
+  background: linear-gradient(
+    95deg,
+    rgba(94, 22, 60, 0.2) 9.12%,
+    rgba(238, 213, 226, 0.2) 100%
+  );
+}
+.pillar-header h4 {
+  margin: 0;
+  padding: 20px 40px;
+  color: black;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.pillar-wrapper {
+  padding-top: 80px;
+}
+
+.pillar-seciton-one {
+  padding: 0 40px;
+  padding-bottom: 40px;
+}
+
+.pillar-seciton-two {
+  padding: 80px 40px;
+  background-color: #656160;
+}
+
+.pillar-seciton-three {
+  padding: 80px 40px;
+  padding-bottom: 160px !important;
+}
+.pillar-wrapper h4 {
+  font-size: 32px;
+  font-weight: 400;
+  color: #2b2928;
+}
+
+.pillar-name-svg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pillar-name-svg h4 {
+  font-size: 50px;
+  font-weight: 600;
+}
+.why-pillar {
+  margin: 60px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.why-pillar h4 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: #474240;
+}
+.why-pillar p {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0;
+  color: #474240;
+}
+
+.pillar-score-container {
+  display: flex;
+  gap: 10px;
+  border-radius: 50px;
+  border: 1px solid #c9c5c3;
+  padding: 5px 10px;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.pillar-status h4 {
+  color: #656160;
+  font-weight: 500;
+}
+
+.scroe-points span {
+  font-size: 32px;
+}
+.scroe-points .inline-icon {
+  color: #656160;
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+}
+.scroe-points {
+  display: flex;
+  align-items: start;
+  gap: 20px !important;
+}
+
+.personal-recommnedation .heading-section,
+.pillar-seciton-two .heading-section,
+.pillar-seciton-three .heading-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.personal-recommnedation .heading-section h4,
+.pillar-seciton-two .heading-section h4,
+.pillar-seciton-three .heading-section h4 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 500;
+}
+.pillar-seciton-two .heading-section h4 {
+  color: white;
+}
+.guidance-description {
+  color: #474240;
+}
+.heading-section {
+  margin-bottom: 30px;
+}
+.score-why-list .scroe-points {
+  display: flex !important;
+  gap: 10px;
+}
+.score-why-list .scroe-points p {
+  margin-bottom: 5px;
+}
+.recommnedation-list {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: start;
+}
+.recommnedation-list img {
+  margin-top: 10px;
+}
+.recommnedation-list div {
+  display: flex;
+  gap: 10px;
+}
+.recommnedation-list p {
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 32px;
+  color: #474240;
+}
+
+.guidance-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0 !important;
+  border: 1px solid #c9c5c3;
+  padding: 80px 40px;
+  border-radius: 20px;
+}
+.guidance-category h5 {
+  margin: 0;
+  font-size: 32px;
+  color: #656160;
+  font-weight: 500;
+}
+.guidance-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 20px !important;
+}
+
+.guidance-category span {
+  font-weight: 600;
+}
+.pillar-intro {
+  margin: 0 !important;
+  font-size: 32px;
+  color: #656160;
+}
+.guidance-category-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.guidance-category-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 5px 10px;
+  border: 1px solid #c9c5c3;
+  width: fit-content;
+  border-radius: 50px;
+}
+.guidance-category-header img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  padding: 0;
+}
+.guidance-item-name {
+  font-weight: 600;
+  margin: 0 !important;
+  margin-top: 50px !important;
+}
+.green {
+  color: #10524e !important;
+}
+.pink {
+  color: #7a3a77 !important;
+}
+.guidance-item-description {
+  padding-left: 40px;
+  margin-top: 5px;
+  display: flex;
+  align-items: start;
+  gap: 10px;
+}
+.guidance-item-description span {
+  font-size: 32px;
+  color: #000;
+  margin-top: 5px;
+}
+.guidance-item-description p {
+  margin: 0 !important;
+  color: #000;
+  font-weight: 500 !important;
+}
+.suppliment-wrapper h4 {
+  font-size: 50px;
+  font-weight: 400;
+  margin: 40px 40px 0px 40px !important;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.recommendations-container {
+  padding: 0 40px 50px 40px;
+  background-color: #f1f1f1;
+}
+
+.supplement-recommendation-card {
+  border: 1px solid #9E9A98;
+  border-radius: 20px;
+  padding: 40px;
+  background-color: white;
+}
+
+.supplement-recommendation-card h4,
+.supplement-recommendation-card p {
+  margin: 0;
+}
+
+.supplement-recommendation-card h4 {
+  font-size: 40px;
+  color: #2b2928;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.supplement-recommendation-card div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.supplement-recommendation-card div span {
+  font-size: 32px;
+}
+.supplement-recommendation-card div p {
+  font-size: 32px;
+  color: #000;
+}
+.recommendation-name {
+  font-weight: 500;
+}
+.action-wrapper h4 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.action-plan-details {
+  padding: 40px;
+}
+
+.action-plan-category h5 {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.action-plan-category .action-item p {
+  margin: 0;
+  font-size: 32px;
+  color: #656160;
+}
+.action-plan-category .action-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.action-item .bullet {
+  font-size: 32px;
+}
+.action-wrapper {
+  padding-bottom: 50px !important;
+  margin-top: 100px !important;
+}
+.health-recommendation-item {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  padding: 40px 40px;
+  border-bottom: 1px solid #c9c5c3;
+}
+.health-recommendation-item p {
+  margin: 0 !important;
+}
+.health-recommendation-item img {
+  margin-top: 10px;
+}
+.report-title h1 {
+  border-bottom: none !important;
+  padding-top: 0 !important;
+}
+.report-title {
+  display: flex;
+  align-items: self-start;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid #9e9a98;
+  padding-top: 160px;
+}
+.report-icon {
+  padding-top: 10px;
+  padding-right: 40px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.biomarker-overall-summary {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.biomarker-overall-summary p {
+  margin: 0;
+}
+.crucial-header {
+  margin-top: 40px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.crucial-header h4 {
+  margin: 0;
+}
+
+.health-recommendation-container {
+  background-color: white;
+  border-radius: 20px;
+}
+.suppliment-wrapper .pillar-intro {
+  padding: 0 40px 40px 40px;
+}
+.suppliment-wrapper .pillar-intro p {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.recommendations-container h3 {
+  margin: 0 !important;
+  color: #656160;
+  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: 10px !important;
+}
+
+.supplement-recommendation-card-wrapper h4 {
+  font-size: 50px;
+  font-weight: 400;
+  color: #656160;
+  margin: 0 !important;
+}
+.supplement-recommendation-card-wrapper .recommendation-name{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px !important;
+  margin-top: 100px !important;
+}
+.supplement-recommendation-card-wrapper .recommendation-name .inline-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.supplement-recommendation-card .crucial-ind-header{
+  display: flex;
+}
+.supplement-recommendation-card .supplement-ind-header{
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 15px;
+  border: 1px solid #c9c5c3;
+  width: fit-content;
+  border-radius: 50px;
+}
+.recommendation-ind-name{
+  color: #656160 !important;
+}
+
+.supplement-disclaimer-wrapper{
+  padding: 100px 40px;
+  padding-bottom: 160px !important;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.supplement-disclaimer-wrapper p{
+  font-size: 24px;
+  margin: 0 !important;
+  color: #000;
+}
