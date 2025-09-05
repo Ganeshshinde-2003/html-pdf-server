@@ -7,18 +7,13 @@ const path = require("path");
 const app = express();
 const port = 3000;
 
-// ✅ Allow all origins + handle preflight requests
-app.use(
-  cors({
-    origin: "*", // allow requests from any origin
+app.use(cors({
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+}));
 
-// ✅ Explicitly handle OPTIONS (preflight) requests
-app.options("*", cors());
-
+app.use(cors());
 app.use(express.static(path.join(__dirname)));
 app.use(bodyParser.json({ limit: "50mb" }));
 
