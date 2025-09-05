@@ -9,10 +9,7 @@ const port = 3000;
 
 app.use(
   cors({
-    origin: [
-      "https://html-to-pdf-nine.vercel.app",
-      "http://127.0.0.1:5500",
-    ], // add your frontend domain
+    origin: ["https://html-to-pdf-nine.vercel.app", "http://127.0.0.1:5500"], // add your frontend domain
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
@@ -59,7 +56,7 @@ app.post("/generate-pdf", async (req, res) => {
       </html>`;
 
     const browser = await puppeteer.launch({
-      headless: "new", // mandatory for modern Puppeteer
+      headless: "new",
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
