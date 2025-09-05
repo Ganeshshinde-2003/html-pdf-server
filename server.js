@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 app.use(cors({
-  origin: ["http://127.0.0.1:5500", "https://html-to-pdf-nine.vercel.app/"], // add your frontend domain
+  origin: ["http://127.0.0.1:5500", "https://html-to-pdf-nine.vercel.app"], // add your frontend domain
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
