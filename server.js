@@ -12,8 +12,6 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
-
-app.use(cors());
 app.use(express.static(path.join(__dirname)));
 app.use(bodyParser.json({ limit: "50mb" }));
 
