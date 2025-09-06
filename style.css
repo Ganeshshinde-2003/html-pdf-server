@@ -1179,3 +1179,9 @@ MAIN NAVBAR (No changes made here)
   margin: 0 !important;
   color: #000;
 }
+.tab-button:disabled {
+  background-color: #d1d5db; /* gray-300 */
+  color: #6b7280;          /* gray-500 */
+  cursor: not-allowed;
+  opacity: 0.6;
+}

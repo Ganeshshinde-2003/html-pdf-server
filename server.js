@@ -75,7 +75,7 @@ app.post("/generate-pdf", async (req, res) => {
     // Generate proper multi-page A4 PDF
     const pdfBuffer = await page.pdf({
       width: "210mm", // A4 width
-      height: "594mm", // double A4 height (297 * 2)
+      height: "700mm", // double A4 height (297 * 2)
       printBackground: true,
     });
 
